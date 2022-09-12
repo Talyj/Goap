@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1662986192 source:c:\users\pc\desktop\esgi\2022_2023\c++\goap\main.cpp
+	<iostream>
+
+1662991380 source:c:\users\pc\desktop\esgi\2022_2023\c++\goap\src\worldstate.cpp
+	"WorldState.h"
+
+1662991428 c:\users\pc\desktop\esgi\2022_2023\c++\goap\include\worldstate.h
+
