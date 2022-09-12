@@ -1,5 +1,6 @@
 #ifndef WORLDSTATE_H
 #define WORLDSTATE_H
+#include <ostream>
 
 enum ressources : int{
     wood_qty = 0,
@@ -20,6 +21,8 @@ class WorldState
         int houses;
 
         int operator[](const int index)const;
+
+
 };
 
 

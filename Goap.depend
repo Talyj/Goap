@@ -12,14 +12,22 @@
 1662991124 source:c:\users\raf\onedrive\bureau\ecole\ia jv\goap\src\action.cpp
 	"Action.h"
 
-1662988928 source:g:\cours\2022-2023\ia\goap\main.cpp
+1662995391 source:g:\cours\2022-2023\ia\goap\main.cpp
 	<iostream>
+	"Action.h"
+	"WorldState.h"
 
-1662991332 source:g:\cours\2022-2023\ia\goap\src\action.cpp
+1662992857 source:g:\cours\2022-2023\ia\goap\src\action.cpp
 	"Action.h"
 
-1662991332 g:\cours\2022-2023\ia\goap\include\action.h
+1662992860 g:\cours\2022-2023\ia\goap\include\action.h
 	<vector>
 	<iostream>
 	<string>
+
+1662995425 source:g:\cours\2022-2023\ia\goap\src\worldstate.cpp
+	"WorldState.h"
+
+1662995414 g:\cours\2022-2023\ia\goap\include\worldstate.h
+	<ostream>
 

@@ -19,7 +19,7 @@ int WorldState::operator[](const int index)const{
         return villagers;
         break;
     case 1:
-        return rocks
+        return rocks;
         break;
     case 2:
         return woods;
@@ -28,5 +28,5 @@ int WorldState::operator[](const int index)const{
         return houses;
         break;
     }
-    return ressources[index];
 }
+
