@@ -16,17 +16,18 @@ WorldState::~WorldState()
 int WorldState::operator[](const int index)const{
     switch(index){
     case 0:
-        return villagers;
+        return woods;
         break;
     case 1:
         return rocks;
         break;
     case 2:
-        return woods;
+        return villagers;
         break;
     case 3:
         return houses;
         break;
     }
 }
+
 
