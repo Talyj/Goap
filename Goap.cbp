@@ -35,9 +35,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Action.h" />
+		<Unit filename="include/Effect.h" />
+		<Unit filename="include/Precondition.h" />
 		<Unit filename="include/WorldState.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Action.cpp" />
+		<Unit filename="src/Effect.cpp" />
+		<Unit filename="src/Precondition.cpp" />
 		<Unit filename="src/WorldState.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
