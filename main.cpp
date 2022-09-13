@@ -16,9 +16,9 @@ int main()
     Action* construireMaison = new Action("Construire une maison", 5);
 
     //Effets
-    couperBois->AddPrecondition("Ajouter une quantité de bois au stock");
-    minerPierre->AddPrecondition("Ajouter une quantité de pierre au stock");
-    construireMaison->AddPrecondition("Ajouter une maison au village");
+    couperBois->AddEffect("Ajouter une quantité de bois au stock");
+    minerPierre->AddEffect("Ajouter une quantité de pierre au stock");
+    construireMaison->AddEffect("Ajouter une maison au village");
 
     //Pré-conditions
     couperBois->AddPrecondition("Avoir des villageois disponible");
@@ -28,6 +28,11 @@ int main()
     construireMaison->AddPrecondition("Avoir 10 de pierre minimum");
 
 
+
+    while(1)
+    {
+        construireMaison.precondition()[0].CompareResources()
+    }
 
     cout << "World State : \{ Nombre de maison = " << ws[RESSOURCES::HOUSE] << " - Nombre de villageois = " <<  ws[RESSOURCES::VILLAGER] << " - Nombre de pierre = " <<  ws[RESSOURCES::ROCK] << " - Nombre de bois = " <<  ws[RESSOURCES::WOOD] << " \}" << endl;
 

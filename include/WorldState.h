@@ -9,6 +9,15 @@ enum RESSOURCES : int{
     HOUSE = 3
 };
 
+enum COMPARATOR : int{
+    HIGHER = 0,
+    LOWER = 1,
+    EQUAL = 2,
+    NOT_EQUAL = 3,
+    HIGHER_OR_EQUAL = 4,
+    LOWER_OR_EQUAL = 5
+};
+
 class WorldState
 {
     public:
