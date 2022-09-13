@@ -9,6 +9,22 @@ enum RESSOURCES : int{
     HOUSE = 3
 };
 
+enum COMPARATOR : int{
+    HIGHER = 0,
+    LOWER = 1,
+    EQUAL = 2,
+    NOT_EQUAL = 3,
+    HIGHER_OR_EQUAL = 4,
+    LOWER_OR_EQUAL = 5
+};
+
+enum TAG : int {
+    INCREASE_WOOD = 0,
+    DECREASE_WOOD = 1,
+    INCREASE_ROCK = 2,
+    DECREASE_ROCK = 3
+};
+
 class WorldState
 {
     public:
@@ -21,9 +37,6 @@ class WorldState
         int houses;
 
         int operator[](const int index)const;
-
-
-
 };
 
 

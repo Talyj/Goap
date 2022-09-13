@@ -4,18 +4,21 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include "WorldState.h"
 
 using namespace std;
 
 class Precondition {
     private:
         string name;
-        enum tag;
+        TAG tag;
+        RESSOURCES res;
+        int cond;
+        int comp;
     public:
         Precondition();
-        CompareRessources(enum );
-        // CompareRessources(ressources a comparer, valeur a comparer, operateur a utiliser) true ou false
-
+        Precondition(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c);
+        bool CompareRessources(WorldState ws);
         virtual ~Precondition();
 
 };
