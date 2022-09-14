@@ -13,6 +13,7 @@ Precondition::Precondition(string name, TAG tag, RESSOURCES res, int value, COMP
 }
 
 bool Precondition::CompareRessources(WorldState ws) {
+
     switch(this->comp) {
         case 0: //HIGHER
             return ws[this->res] > this->cond;

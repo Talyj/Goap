@@ -4,6 +4,7 @@
 #include <WorldState.h>
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 //class effect
@@ -14,11 +15,16 @@ class Effect
 {
     private:
         string name;
-        RESSOURCES tag;
+
+        RESSOURCES res;
+        int cond;
+        int comp;
 
     public:
+        TAG tag;
         Effect();
-        Apply(RESSOURCES ressource, int value, COMPARATOR comparator);
+        Effect(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c);
+        Apply(WorldState& ws);
 
         virtual ~Effect();
 };

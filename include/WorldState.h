@@ -22,7 +22,11 @@ enum TAG : int {
     INCREASE_WOOD = 0,
     DECREASE_WOOD = 1,
     INCREASE_ROCK = 2,
-    DECREASE_ROCK = 3
+    DECREASE_ROCK = 3,
+    INCREASE_HOUSE = 4,
+    DECREASE_HOUSE = 5,
+    INCREASE_VILLAGER = 6,
+    DECREASE_VILLAGER = 7
 };
 
 class WorldState
@@ -37,6 +41,8 @@ class WorldState
         int houses;
 
         int operator[](const int index)const;
+
+        void SetNewValue(const int index, int value);
 };
 
 
