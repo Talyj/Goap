@@ -12,29 +12,43 @@
 1662991124 source:c:\users\raf\onedrive\bureau\ecole\ia jv\goap\src\action.cpp
 	"Action.h"
 
-1663055534 source:g:\cours\2022-2023\ia\goap\main.cpp
+1663084741 source:g:\cours\2022-2023\ia\goap\main.cpp
 	<iostream>
+	<windows.h>
 	"Action.h"
 	"WorldState.h"
 
-1662992857 source:g:\cours\2022-2023\ia\goap\src\action.cpp
+1663084702 source:g:\cours\2022-2023\ia\goap\src\action.cpp
 	"Action.h"
 
-1662992860 g:\cours\2022-2023\ia\goap\include\action.h
+1663084763 g:\cours\2022-2023\ia\goap\include\action.h
 	<vector>
 	<iostream>
 	<string>
+	"WorldState.h"
+	"Effect.h"
+	"Precondition.h"
 
-1663055534 source:g:\cours\2022-2023\ia\goap\src\worldstate.cpp
+1663073540 source:g:\cours\2022-2023\ia\goap\src\worldstate.cpp
 	"WorldState.h"
 
-1663056220 g:\cours\2022-2023\ia\goap\include\worldstate.h
+1663073611 g:\cours\2022-2023\ia\goap\include\worldstate.h
 	<ostream>
 
-1663055852 source:g:\cours\2022-2023\ia\goap\src\effect.cpp
+1663073584 source:g:\cours\2022-2023\ia\goap\src\effect.cpp
 	"Effect.h"
 
-1663056323 g:\cours\2022-2023\ia\goap\include\effect.h
+1663074936 g:\cours\2022-2023\ia\goap\include\effect.h
 	<WorldState.h>
 	<string>
+	<iostream>
+
+1663073834 source:g:\cours\2022-2023\ia\goap\src\precondition.cpp
+	"Precondition.h"
+
+1663075729 g:\cours\2022-2023\ia\goap\include\precondition.h
+	<vector>
+	<iostream>
+	<string>
+	"WorldState.h"
 

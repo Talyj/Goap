@@ -30,4 +30,22 @@ int WorldState::operator[](const int index)const{
     }
 }
 
+void WorldState::SetNewValue(const int index, int value)
+{
+    switch(index){
+    case 0:
+        woods = value;
+        break;
+    case 1:
+        rocks = value;
+        break;
+    case 2:
+        villagers = value;
+        break;
+    case 3:
+        houses = value;
+        break;
+    }
+}
+
 

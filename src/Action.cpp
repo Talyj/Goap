@@ -16,11 +16,13 @@ Action::SetCount(int ac) {
     this->action_count = ac;
 }
 
-Action::AddEffect(string e) {
+Action::AddEffect(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c) {
+    Effect* e = new Effect(name, tag, res, value, c);
     this->effects.push_back(e);
 }
 
-Action::AddPrecondition(string p) {
+Action::AddPrecondition(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c) {
+    Precondition* p = new Precondition(name, tag, res, value, c);
     this->preconditions.push_back(p);
 }
 
@@ -40,24 +42,63 @@ Action::GetCount() {
     }
 }
 
-Action::GetAllEffects() {
-    if(this->effects.empty()) {
-        cout << "L'action n'a pas d'effets." << endl;
-    } else {
-        for(int i = 0; i < this->effects.size(); i++) {
-            cout << this->effects[i] << endl;
-        }
+Action::GetAllEffects(WorldState& ws) {
+    for(int i = 0; i < effects.size(); i++)
+    {
+        effects[i]->Apply(ws);
     }
 }
 
-Action::GetAllPreconditions() {
-    if(this->preconditions.empty()) {
-        cout << "L'action n'a pas de preconditions." << endl;
-    } else {
-        for(int i = 0; i < this->preconditions.size(); i++) {
-            cout << this->preconditions[i] << endl;
+vector<Effect*> Action::GetEffects() {
+    return this->effects;
+}
+
+vector<Precondition*> Action::GetAllPreconditions() {
+    return this->preconditions;
+}
+
+vector<Action*> Action::FindActionWithTagEffect(TAG tag, vector<Action*> allActions)
+{
+    vector<Action*> res = vector<Action*>();
+    for(int i = 0; i < allActions.size(); i++)
+    {
+        for(int j = 0; j < allActions[i]->GetEffects().size(); j++)
+        {
+            if(allActions[i]->GetEffects()[j]->tag == tag)
+            {
+                res.push_back(allActions[i]);
+                break;
+            }
         }
     }
+
+    return res;
+}
+
+
+void Action::Process(WorldState& ws, vector<Action*> allActions, vector<Action*> *path)
+{
+    bool isActionValid = true;
+    bool precoBool = false;
+    for(int j = 0; j < this->preconditions.size(); j++)
+    {
+        precoBool = this->preconditions[j]->CompareRessources(ws);
+        if(!precoBool){
+            vector<Action*> neighb = FindActionWithTagEffect(this->preconditions[j]->tag, allActions);
+            for(int m = 0; m < neighb.size(); m++)
+            {
+                neighb[m]->Process(ws, allActions, path);
+            }
+        }
+        isActionValid *= precoBool;
+
+    }
+    if(isActionValid)
+    {
+        this->GetAllEffects(ws);
+        path->push_back(this);
+    }
+    return;
 }
 
 Action::~Action() {
