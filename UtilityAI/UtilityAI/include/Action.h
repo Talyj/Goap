@@ -1,22 +1,19 @@
 #ifndef ACTION_H
 #define ACTION_H
 #include "Worlstate.h"
-
-enum resource{
-    bois,
-    pierre,
-    nourriture
-};
+#include <string>
 
 class Action
 {
     public:
         Action(){};
-        Action(char actionName);
+        Action(const std::string res_name/*, const RESSOURCES type*/);
         virtual ~Action();
-        virtual void Update(Worlstate ws){};
+        void Update(const Worlstate ws, const RESSOURCES res);
+        void Update(const Worlstate ws, const BUILDING bui);
+
         float utility_score;
-        char name;
+        std::string name;
     protected:
 
     private:
