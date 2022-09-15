@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1584209020 source:c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\main.cpp
+	<iostream>
+
+1663073909 source:c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\src\worlstate.cpp
+	"Worlstate.h"
+
+1663081225 c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\include\worlstate.h
+
+1663075542 source:c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\src\action.cpp
+	"Action.h"
+
+1663081237 c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\include\action.h
+	"Worlstate.h"
+
+1663081011 source:c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\src\ressources.cpp
+	"Ressources.h"
+
+1663081007 c:\users\pc\desktop\esgi\2022_2023\c++\utilityai\include\ressources.h
+	"Action.h"
+
