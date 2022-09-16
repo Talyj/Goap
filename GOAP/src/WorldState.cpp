@@ -1,63 +1,57 @@
 #include "WorldState.h"
 
-WorldState::WorldState(const int nb_villagers, const int nb_rocks, const int nb_woods, const int nb_houses, const int nb_gold)
-{
-    villagers = nb_villagers;
-    rocks = nb_rocks;
-    woods = nb_woods;
-    houses = nb_houses;
-    gold = nb_gold;
+WorldState::WorldState(const int nb_villagers, const int nb_rocks, const int nb_woods, const int nb_houses, const int nb_gold) {
+    this->villagers = nb_villagers;
+    this->rocks = nb_rocks;
+    this->woods = nb_woods;
+    this->houses = nb_houses;
+    this->gold = nb_gold;
 }
 
-WorldState WorldState::operator=(const WorldState& ws)
-{
+void WorldState::SetNewValue(const int index, int value) {
+    switch(index){
+    case 0:
+        this->woods = value;
+        break;
+    case 1:
+        this->rocks = value;
+        break;
+    case 2:
+        this->villagers = value;
+        break;
+    case 3:
+        this->houses = value;
+        break;
+    case 4:
+        this->gold = value;
+        break;
+    }
+}
+
+WorldState WorldState::operator=(const WorldState& ws) {
     return WorldState(ws[2], ws[1], ws[0], ws[3], ws[4]);
 }
 
-WorldState::~WorldState()
-{
-    //dtor
-}
-
-int WorldState::operator[](const int index)const{
+int WorldState::operator[](const int index)const {
     switch(index){
     case 0:
-        return woods;
+        return this->woods;
         break;
     case 1:
-        return rocks;
+        return this->rocks;
         break;
     case 2:
-        return villagers;
+        return this->villagers;
         break;
     case 3:
-        return houses;
+        return this->houses;
         break;
     case 4:
-        return gold;
+        return this->gold;
         break;
     }
 }
 
-void WorldState::SetNewValue(const int index, int value)
-{
-    switch(index){
-    case 0:
-        woods = value;
-        break;
-    case 1:
-        rocks = value;
-        break;
-    case 2:
-        villagers = value;
-        break;
-    case 3:
-        houses = value;
-        break;
-    case 4:
-        gold = value;
-        break;
-    }
-}
+WorldState::~WorldState() {}
 
 

@@ -7,23 +7,19 @@
 #include <iostream>
 
 using namespace std;
-//class effect
-// Fonction Apply(ressources a modifier, valeur a utiliser, operateur a utiliser); applique l'effet
-// nom, enum tag
 
-class Effect
-{
+class Effect {
     private:
-        string name;
-
         RESSOURCES res;
+        TAG tag;
+
+        string name;
         int cond;
         int comp;
-
     public:
-        TAG tag;
         Effect();
         Effect(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c);
+        TAG GetTag() const;
         Apply(WorldState& ws);
 
         virtual ~Effect();

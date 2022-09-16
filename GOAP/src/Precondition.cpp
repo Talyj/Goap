@@ -1,8 +1,6 @@
 #include "Precondition.h"
 
-Precondition::Precondition() {
-
-}
+Precondition::Precondition() {}
 
 Precondition::Precondition(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c) {
     this->name = name;
@@ -13,7 +11,6 @@ Precondition::Precondition(string name, TAG tag, RESSOURCES res, int value, COMP
 }
 
 bool Precondition::CompareRessources(WorldState ws) {
-
     switch(this->comp) {
         case 0: //HIGHER
             return ws[this->res] > this->cond;
@@ -40,6 +37,12 @@ bool Precondition::CompareRessources(WorldState ws) {
     }
 }
 
-Precondition::~Precondition() {
-    //dtor
+TAG Precondition::GetTag() const {
+    return this->tag;
 }
+
+string Precondition::GetName() const {
+    return this->name;
+}
+
+Precondition::~Precondition() {}
