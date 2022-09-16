@@ -19,21 +19,29 @@ int main()
 
     //Effets
     couperBois->AddEffect("Ajouter une quantité de bois au stock", TAG::INCREASE_WOOD, RESSOURCES::WOOD, 1, COMPARATOR::HIGHER );
+
     achatBois->AddEffect("Ajouter une quantité de bois au stock", TAG::INCREASE_WOOD, RESSOURCES::WOOD, 1, COMPARATOR::HIGHER );
-    achatBois->AddEffect("Donner l'argent pour le bois", TAG::DECREASE_GOLD, RESSOURCES::GOLD, 1, COMPARATOR::HIGHER );
+    achatBois->AddEffect("Donner l'argent pour le bois", TAG::DECREASE_GOLD, RESSOURCES::GOLD, 10, COMPARATOR::LOWER );
+
     minerPierre->AddEffect("Ajouter une quantité de pierre au stock", TAG::INCREASE_ROCK, RESSOURCES::ROCK, 1, COMPARATOR::HIGHER );
+
     construireMaison->AddEffect("Ajouter une maison au village", TAG::INCREASE_HOUSE, RESSOURCES::HOUSE, 1, COMPARATOR::HIGHER );
     construireMaison->AddEffect("Utiliser du bois", TAG::DECREASE_WOOD, RESSOURCES::WOOD, 10, COMPARATOR::LOWER );
     construireMaison->AddEffect("Utiliser du pierre", TAG::DECREASE_ROCK, RESSOURCES::ROCK, 10, COMPARATOR::LOWER );
 
     //Pré-conditions
     couperBois->AddPrecondition("Avoir des villageois disponible", TAG::INCREASE_VILLAGER, RESSOURCES::VILLAGER, 1, COMPARATOR::HIGHER_OR_EQUAL );
+
     achatBois->AddPrecondition("Avoir assez d'argent", TAG::INCREASE_GOLD, RESSOURCES::GOLD, 10, COMPARATOR::HIGHER_OR_EQUAL );
+
     minerPierre->AddPrecondition("Avoir des villageois disponible", TAG::INCREASE_VILLAGER, RESSOURCES::VILLAGER, 1, COMPARATOR::HIGHER_OR_EQUAL );
+
     construireMaison->AddPrecondition("Avoir des villageois disponible", TAG::INCREASE_VILLAGER, RESSOURCES::VILLAGER, 1, COMPARATOR::HIGHER_OR_EQUAL );
     construireMaison->AddPrecondition("Avoir 10 de bois minimum", TAG::INCREASE_WOOD, RESSOURCES::WOOD, 10, COMPARATOR::HIGHER_OR_EQUAL );
     construireMaison->AddPrecondition("Avoir 10 de pierre minimum", TAG::INCREASE_ROCK, RESSOURCES::ROCK, 10, COMPARATOR::HIGHER_OR_EQUAL );
 
+
+    //Toutes les actions possibles
     vector<Action*> allActions= vector<Action*>();
     allActions.push_back(construireMaison);
     allActions.push_back(couperBois);
@@ -41,26 +49,19 @@ int main()
     allActions.push_back(achatBois);
 
 
-
+    //Action de départ
     vector<Action*> actions= vector<Action*>();
     actions.push_back(construireMaison);
 
-
-    vector<Precondition*> precondition= vector<Precondition*>();
-    for(int i = 0; i < actions.size(); i++)
-    {
-        for(int j = 0; j < actions[i]->GetAllPreconditions().size(); j++)
-        {
-            precondition.push_back(actions[i]->GetAllPreconditions()[j]);
-        }
-    }
-
+    //Chemin à emprunter
     vector<Action*> path;
+    //Cout du chemin
     int cost = 0;
 
+    //Boucle
     while(ws[RESSOURCES::HOUSE] != NB_MAISON_FINAL)
     {
-        cout << "\nWorld State : \{ Nombre de maison = " << ws[RESSOURCES::HOUSE] << " - Nombre de villageois = " <<  ws[RESSOURCES::VILLAGER] << " - Nombre de pierre = " <<  ws[RESSOURCES::ROCK] << " - Nombre de bois = " <<  ws[RESSOURCES::WOOD] << " \}" << endl;
+        cout << "\nWorld State : \{ Nombre de maison = " << ws[RESSOURCES::HOUSE] << " - Nombre de villageois = " <<  ws[RESSOURCES::VILLAGER] << " - Nombre de pierre = " <<  ws[RESSOURCES::ROCK] << " - Nombre de bois = " <<  ws[RESSOURCES::WOOD] << " - Argent = " <<  ws[RESSOURCES::GOLD] << " \}" << endl;
 
         path = vector<Action*>();
         for(int i = 0; i < actions.size(); i++)
@@ -72,7 +73,7 @@ int main()
         for(int i = 0; i < path.size(); i++)
         {
             path[i]->GetAllEffects(ws);
-            cout << " -> " << path[i]->name;
+            cout << " -> " << path[i]->GetName();
         }
 
         cout << " - Cout : " << cost << endl;
