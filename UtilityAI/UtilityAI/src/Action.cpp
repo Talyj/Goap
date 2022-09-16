@@ -1,7 +1,6 @@
 #include "Action.h"
 #include <iostream>
 
-
 Action::Action(const std::string res_name, const RESSOURCES type, const BUILDING other_type)
 {
     this->name = res_name;
@@ -14,6 +13,7 @@ Action::~Action()
     //dtor
 }
 
+//Check if the building in parameters can be built with the current resources
 bool Action::HaveEnoughResources(const Worlstate ws, const BUILDING bui, const RESSOURCES res)
 {
     switch(bui){
@@ -55,10 +55,6 @@ float Action::Update(const Worlstate ws, const RESSOURCES res)
 //This will be called every loop to update the building in parameter its utility score
 float Action::Update(const Worlstate ws, const BUILDING bui)
 {
-    int time_to_build = 0;
-    int nb_already_built = 0;
-    int rock_needed = 0;
-
     switch(bui){
     case HOUSE:
         return (((((float)ws[bui] / 100) - 1) * -1) + (float)(ws.house_needed / ws.villager)) / 2;

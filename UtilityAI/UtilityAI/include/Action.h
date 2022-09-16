@@ -3,6 +3,8 @@
 #include "Worlstate.h"
 #include <string>
 
+
+//This class represent the differents action possible (gather resources or build buildings)
 class Action
 {
     public:
@@ -12,8 +14,6 @@ class Action
         float Update(const Worlstate ws, const RESSOURCES res);
         float Update(const Worlstate ws, const BUILDING bui);
         bool HaveEnoughResources(const Worlstate ws, BUILDING bui, RESSOURCES res);
-        //Function apply
-        //Function increment
         void IncrementValue(Worlstate ws, const int id, const bool increase_or_decrease);
 
         float utility_score;

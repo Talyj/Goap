@@ -1,4 +1,5 @@
 #include "Worlstate.h"
+#include <iostream>
 
 
 
@@ -51,6 +52,11 @@ Worlstate::Worlstate(const int nb_wood, const int nb_rock, const int nb_food, co
     NB_VILLAGER.push_back(5);
     NB_VILLAGER.push_back(30);
     NB_VILLAGER.push_back(50);
+
+    NB_FINAL_BUILDS = vector<int>();
+    NB_FINAL_BUILDS.push_back(5);
+    NB_FINAL_BUILDS.push_back(2);
+    NB_FINAL_BUILDS.push_back(1);
 }
 
 Worlstate::~Worlstate()
@@ -64,33 +70,40 @@ Worlstate::IncrementValue(const int id){
     {
     case 10:
         wood = wood + 1;
+        cout << "Bois coupe" << endl;
         break;
     case 11:
         rock = rock + 1;
+        cout << "Pierre minee" << endl;
         break;
     case 12:
         food = food  + 1;
+        cout << "Nouriture préparee" << endl;
         break;
     case 13 :
         villager = villager  + 1;
+        cout << "Villageois cree" << endl;
         break;
     case 0:
         house = house  + 1;
         DecreaseValue(RESSOURCES::WOOD, NB_WOOD[0]);
         DecreaseValue(RESSOURCES::ROCK, NB_ROCK[0]);
         DecreaseValue(RESSOURCES::FOOD, NB_FOOD[0]);
+        cout << "Maison construite" << endl;
         break;
     case 1:
         religious_building = religious_building  + 1;
         DecreaseValue(RESSOURCES::WOOD, NB_WOOD[1]);
         DecreaseValue(RESSOURCES::ROCK, NB_ROCK[1]);
         DecreaseValue(RESSOURCES::FOOD, NB_FOOD[1]);
+        cout << "Batiment religieux construit" << endl;
         break;
     case 2:
         city_hall = city_hall  + 1;
         DecreaseValue(RESSOURCES::WOOD, NB_WOOD[2]);
         DecreaseValue(RESSOURCES::ROCK, NB_ROCK[2]);
         DecreaseValue(RESSOURCES::FOOD, NB_FOOD[2]);
+        cout << "Mairie construit" << endl;
         break;
     }
 }

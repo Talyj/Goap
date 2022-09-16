@@ -27,15 +27,6 @@ enum BUILDING : int{
     NONES = 999
 };
 
-enum TAG : int{
-    INCREASE_WOOD = 0,
-    DECREASE_WOOD = 1,
-    INCREASE_ROCK = 2,
-    DECREASE_ROCK = 3,
-    INCREASE_FOOD = 4,
-    DECREASE_FOOD = 5,
-};
-
 class Worlstate
 {
     public:
@@ -50,6 +41,8 @@ class Worlstate
         vector<int> NB_ROCK;
         vector<int> NB_FOOD;
         vector<int> NB_VILLAGER;
+
+        vector<int> NB_FINAL_BUILDS;
 
         int wood;
         int rock;
