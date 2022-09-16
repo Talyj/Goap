@@ -52,3 +52,45 @@
 	<string>
 	"WorldState.h"
 
+1663358876 source:g:\cours\2022-2023\ia\goap\goap\main.cpp
+	<iostream>
+	<windows.h>
+	"Action.h"
+	"WorldState.h"
+
+1663361078 g:\cours\2022-2023\ia\goap\goap\include\action.h
+	<vector>
+	<iostream>
+	<string>
+	<utility>
+	<limits.h>
+	"WorldState.h"
+	"Effect.h"
+	"Precondition.h"
+
+1663338496 g:\cours\2022-2023\ia\goap\goap\include\worldstate.h
+	<ostream>
+
+1663248498 g:\cours\2022-2023\ia\goap\goap\include\effect.h
+	<WorldState.h>
+	<string>
+	<iostream>
+
+1663248498 g:\cours\2022-2023\ia\goap\goap\include\precondition.h
+	<vector>
+	<iostream>
+	<string>
+	"WorldState.h"
+
+1663248498 source:g:\cours\2022-2023\ia\goap\goap\src\effect.cpp
+	"Effect.h"
+
+1663361813 source:g:\cours\2022-2023\ia\goap\goap\src\action.cpp
+	"Action.h"
+
+1663331328 source:g:\cours\2022-2023\ia\goap\goap\src\precondition.cpp
+	"Precondition.h"
+
+1663338399 source:g:\cours\2022-2023\ia\goap\goap\src\worldstate.cpp
+	"WorldState.h"
+
