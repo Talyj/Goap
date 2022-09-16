@@ -1,6 +1,6 @@
 #ifndef WORLDSTATE_H
 #define WORLDSTATE_H
-#include <ostream>
+#include <iostream>
 
 enum RESSOURCES : int{
     WOOD = 0,
@@ -32,22 +32,23 @@ enum TAG : int {
     DECREASE_GOLD = 9
 };
 
-class WorldState
-{
-    public:
-        WorldState(const int nb_villagers, const int nb_rocks, const int nb_woods, const int nb_houses, const int nb_gold);
-        WorldState(){};
-        virtual ~WorldState();
+class WorldState {
+    private:
         int villagers;
         int rocks;
         int woods;
         int houses;
         int gold;
+    public:
+        WorldState(){};
+        WorldState(const int nb_villagers, const int nb_rocks, const int nb_woods, const int nb_houses, const int nb_gold);
+
+        void SetNewValue(const int index, int value);
 
         int operator[](const int index)const;
         WorldState operator=(const WorldState& ws);
 
-        void SetNewValue(const int index, int value);
+        virtual ~WorldState();
 };
 
 

@@ -94,3 +94,42 @@
 1663338399 source:g:\cours\2022-2023\ia\goap\goap\src\worldstate.cpp
 	"WorldState.h"
 
+1663362460 source:c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\src\precondition.cpp
+	"Precondition.h"
+
+1663362460 c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\include\precondition.h
+	<vector>
+	<iostream>
+	<string>
+	"WorldState.h"
+
+1663362460 c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\include\worldstate.h
+	<ostream>
+
+1663362460 source:c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\src\worldstate.cpp
+	"WorldState.h"
+
+1663362460 source:c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\main.cpp
+	<iostream>
+	<windows.h>
+	"Action.h"
+	"WorldState.h"
+
+1663362460 c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\include\action.h
+	<vector>
+	<iostream>
+	<string>
+	<utility>
+	<limits.h>
+	"WorldState.h"
+	"Effect.h"
+	"Precondition.h"
+
+1663363002 c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\include\effect.h
+	<WorldState.h>
+	<string>
+	<iostream>
+
+1663363011 source:c:\users\raf\onedrive\bureau\ecole\ia jv\goap\goap\src\effect.cpp
+	"Effect.h"
+
