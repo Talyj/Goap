@@ -1,12 +1,8 @@
 #include "Effect.h"
 
-Effect::Effect()
-{
-    //ctor
-}
+Effect::Effect() {}
 
-Effect::Effect(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c)
-{
+Effect::Effect(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c) {
     this->name = name;
     this->tag = tag;
     this->res = res;
@@ -14,8 +10,8 @@ Effect::Effect(string name, TAG tag, RESSOURCES res, int value, COMPARATOR c)
     this-> comp = c;
 }
 
-Effect::Apply(WorldState& ws)
-{
+// Fonction qui permet d'appliquer l'effet
+Effect::Apply(WorldState& ws) {
     switch(this->comp) {
         case 0: //HIGHER
             ws.SetNewValue(this->res, ws[this->res] + this->cond);
@@ -30,7 +26,8 @@ Effect::Apply(WorldState& ws)
     }
 }
 
-Effect::~Effect()
-{
-    //dtor
+TAG Effect::GetTag() const {
+    return this->tag;
 }
+
+Effect::~Effect() {}
