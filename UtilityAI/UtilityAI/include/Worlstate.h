@@ -1,24 +1,15 @@
 #ifndef WORLSTATE_H
 #define WORLSTATE_H
 
+#include "windows.h"
 #include <string>
 #include <list>
 #include <vector>
 
 #define NB_FINAL_HOUSES 5
-//#define NB_WOOD_HOUSE 10
-//#define NB_ROCK_HOUSE 5
-//#define NB_FOOD_HOUSE 5
-
 #define NB_FINAL_RELIGIOUS_BUILDING 1
-//#define NB_WOOD_RELIGIOUS_BUILDING 30
-//#define NB_ROCK_RELIGIOUS_BUILDING 30
-//#define NB_FOOD_RELIGIOUS_BUILDING 10
-
 #define NB_FINAL_CITY_HALL 1
-//#define NB_WOOD_CITY_HALL 20
-//#define NB_ROCK_CITY_HALL 50
-//#define NB_FOOD_CITY_HALL 20
+
 using namespace std;
 
 enum RESSOURCES : int{
@@ -26,12 +17,14 @@ enum RESSOURCES : int{
     ROCK = 11,
     FOOD = 12,
     VILLAGER = 13,
+    NONE = 999
 };
 
 enum BUILDING : int{
     HOUSE = 0,
     RELIGIOUS_BUILDING = 1,
     CITY_HALL = 2,
+    NONES = 999
 };
 
 enum TAG : int{
@@ -49,11 +42,14 @@ class Worlstate
         Worlstate();
         Worlstate(const int nb_wood, const int nb_rock, const int nb_food, const int nb_house, const int nb_religious_building, const int nb_city_hall, const int nb_villager);
         virtual ~Worlstate();
+        IncrementValue(const int id);
+        DecreaseValue(const int id, const int qty);
         int operator[](const int index)const;
 
         vector<int> NB_WOOD;
         vector<int> NB_ROCK;
         vector<int> NB_FOOD;
+        vector<int> NB_VILLAGER;
 
         int wood;
         int rock;
@@ -63,6 +59,15 @@ class Worlstate
         int house;
         int religious_building;
         int city_hall;
+
+        int wood_needed;
+        int rock_needed;
+        int food_needed;
+        int villager_needed;
+
+        int house_needed;
+        int religious_building_needed;
+        int city_hall_needed;
 
     private:
 };
