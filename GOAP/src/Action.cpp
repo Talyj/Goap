@@ -67,7 +67,7 @@ vector<Action*> Action::FindActionWithTagEffect(TAG tag, vector<Action*> allActi
     {
         for(int j = 0; j < allActions[i]->GetEffects().size(); j++)
         {
-            if(allActions[i]->GetEffects()[j]->tag == tag)
+            if(allActions[i]->GetEffects()[j]->GetTag() == tag)
             {
                 res.push_back(allActions[i]);
                 break;
@@ -89,7 +89,7 @@ pair<bool, int> Action::Simulate(WorldState& ws, vector<Action*> allActions, vec
     {
         precoBool = this->preconditions[j]->CompareRessources(ws);
         if(!precoBool){
-            vector<Action*> neighb = FindActionWithTagEffect(this->preconditions[j]->tag, allActions);
+            vector<Action*> neighb = FindActionWithTagEffect(this->preconditions[j]->GetTag(), allActions);
             if(neighb.size())
             {
                 int minCost = INT_MAX;
