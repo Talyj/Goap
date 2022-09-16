@@ -6,39 +6,41 @@
 #include <vector>
 
 #define NB_FINAL_HOUSES 5
-#define NB_WOOD_HOUSE 10
-#define NB_ROCK_HOUSE 5
-#define NB_FOOD_HOUSE 5
+//#define NB_WOOD_HOUSE 10
+//#define NB_ROCK_HOUSE 5
+//#define NB_FOOD_HOUSE 5
 
 #define NB_FINAL_RELIGIOUS_BUILDING 1
-#define NB_WOOD_RELIGIOUS_BUILDING 30
-#define NB_ROCK_RELIGIOUS_BUILDING 30
-#define NB_FOOD_RELIGIOUS_BUILDING 10
+//#define NB_WOOD_RELIGIOUS_BUILDING 30
+//#define NB_ROCK_RELIGIOUS_BUILDING 30
+//#define NB_FOOD_RELIGIOUS_BUILDING 10
 
 #define NB_FINAL_CITY_HALL 1
-#define NB_WOOD_CITY_HALL 20
-#define NB_ROCK_CITY_HALL 50
-#define NB_FOOD_CITY_HALL 20
-
+//#define NB_WOOD_CITY_HALL 20
+//#define NB_ROCK_CITY_HALL 50
+//#define NB_FOOD_CITY_HALL 20
+using namespace std;
 
 enum RESSOURCES : int{
-    WOOD = 0,
-    ROCK = 1,
-    FOOD = 2,
-    VILLAGER = 3,
+    WOOD = 10,
+    ROCK = 11,
+    FOOD = 12,
+    VILLAGER = 13,
 };
 
 enum BUILDING : int{
-    HOUSE = 10,
-    RELIGIOUS_BUILDING = 11,
-    CITY_HALL = 12,
+    HOUSE = 0,
+    RELIGIOUS_BUILDING = 1,
+    CITY_HALL = 2,
 };
 
-const char* NB_WOOD[] =
-{
-    "10", //HOUSE
-    "30", //RELIGIOUS_BUILD
-    "20"  // CITY_HALL
+enum TAG : int{
+    INCREASE_WOOD = 0,
+    DECREASE_WOOD = 1,
+    INCREASE_ROCK = 2,
+    DECREASE_ROCK = 3,
+    INCREASE_FOOD = 4,
+    DECREASE_FOOD = 5,
 };
 
 class Worlstate
@@ -49,15 +51,18 @@ class Worlstate
         virtual ~Worlstate();
         int operator[](const int index)const;
 
+        vector<int> NB_WOOD;
+        vector<int> NB_ROCK;
+        vector<int> NB_FOOD;
 
-    int wood;
-    int rock;
-    int food;
-    int villager;
+        int wood;
+        int rock;
+        int food;
+        int villager;
 
-    int house;
-    int religious_building;
-    int city_hall;
+        int house;
+        int religious_building;
+        int city_hall;
 
     private:
 };

@@ -17,8 +17,28 @@ Action::~Action()
     //dtor
 }
 
+bool Action::HaveEnoughResources(const Worlstate ws, const BUILDING bui)
+{
+    switch(bui){
+    case HOUSE:
+        if(ws.wood >= ws.NB_WOOD[(int)bui] && ws.rock >= ws.NB_ROCK[(int)bui] && ws.food >= ws.NB_FOOD[(int)bui]){
+            return true;
+        }
+        return false;
+    case RELIGIOUS_BUILDING:
+        if(ws.wood >= ws.NB_WOOD[(int)bui] && ws.rock >= ws.NB_ROCK[(int)bui] && ws.food >= ws.NB_FOOD[(int)bui]){
+            return true;
+        }
+        return false;
+    case CITY_HALL:
+        if(ws.wood >= ws.NB_WOOD[(int)bui] && ws.rock >= ws.NB_ROCK[(int)bui] && ws.food >= ws.NB_FOOD[(int)bui]){
+            return true;
+        }
+        return false;
+    }
+}
 //This will be called every loop to update the resource in parameter its utility score
-void Action::Update(const Worlstate* ws, const RESSOURCES res)
+void Action::Update(const Worlstate ws, const RESSOURCES res)
 {
     int time_to_gather = 0;
     int resource_weight = 0;
@@ -41,7 +61,7 @@ void Action::Update(const Worlstate* ws, const RESSOURCES res)
 }
 
 //This will be called every loop to update the building in parameter its utility score
-float Action::Update(const Worlstate* ws, const BUILDING bui)
+float Action::Update(const Worlstate ws, const BUILDING bui)
 {
     int time_to_build = 0;
     int nb_already_built = 0;
@@ -71,24 +91,8 @@ float Action::Update(const Worlstate* ws, const BUILDING bui)
     return ((((ws[bui] / 100) - 1) * -1) + time_to_build + nb_already_built) / 3;
 }
 
-bool Action::HaveEnoughResources(const Worlstate* ws, const BUILDING bui)
-{
-    int* test = (int*)bui;
-    switch(bui){
-    case HOUSE:
-        /*if(ws.wood >= NB_WOOD[test] && ws.rock >= NB_ROCK_HOUSE && ws.food >= NB_FOOD_HOUSE){
-            return true;
-        }*/
-        return false;
-    case RELIGIOUS_BUILDING:
-        if(ws.wood >= NB_WOOD_RELIGIOUS_BUILDING && ws.rock >= NB_ROCK_RELIGIOUS_BUILDING && ws.food >= NB_FOOD_RELIGIOUS_BUILDING){
-            return true;
-        }
-        return false;
-    case CITY_HALL:
-        if(ws.wood >= NB_WOOD_CITY_HALL && ws.rock >= NB_ROCK_CITY_HALL && ws.food >= NB_FOOD_CITY_HALL){
-            return true;
-        }
-        return false;
-    }
+void IncrementValue(Worlstate ws, const string res_name, const bool need_increase){
+
 }
+
+

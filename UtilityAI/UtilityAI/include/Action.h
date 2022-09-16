@@ -10,9 +10,12 @@ class Action
         Action(const std::string res_name, const RESSOURCES type);
         Action(const std::string res_name, const BUILDING type);
         virtual ~Action();
-        void Update(const Worlstate* ws, const RESSOURCES res);
-        float Update(const Worlstate* ws, const BUILDING bui);
-        bool HaveEnoughResources(const Worlstate* ws, BUILDING bui);
+        void Update(const Worlstate ws, const RESSOURCES res);
+        float Update(const Worlstate ws, const BUILDING bui);
+        bool HaveEnoughResources(const Worlstate ws, BUILDING bui);
+        //Function apply
+        //Function increment
+        void IncrementValue(Worlstate ws, const std::string name, const bool increase_or_decrease);
 
         float utility_score;
         std::string name;
